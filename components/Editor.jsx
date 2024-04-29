@@ -18,10 +18,12 @@ const Editor = ({displayName, language, value, onChange}) => {
 
 
   return (
-    <div className={`flex flex-col w-[90%] sm:w-1/4 ${open ? '' : 'sm:w-[200px] h-[150px]'}`}>
+    <div className={`transition-all delay-75 ease-in-out  flex flex-col w-[90%] sm:w-1/4 ${open ? '' : 'sm:w-[200px] h-[150px] sm:h-full flex-shrink'}`}>
       <div className='bg-[#e3e3e3] rounded-t-2xl  text-[#121212] p-2 flex justify-between items-center'>
           <h1 className='text-[20px] uppercase font-black'>{displayName}</h1>
-         <button className='' onClick={() => setOpen(prevOpen => !prevOpen)}>O/C</button></div>
+         <button className='' onClick={() => setOpen(prevOpen => !prevOpen)}>
+            {open ? <span>Close</span> : <span>Open</span>}
+          </button></div>
       <ControlledEditor onBeforeChange={handleChange} value={value} className='rounded-b-2xl flex-grow overflow-hidden h-80' options={{
         lineWrapping: true,
         lint: true,
